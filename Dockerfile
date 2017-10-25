@@ -71,25 +71,7 @@ RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - \
 # Install Composer, PHPCS and Framgia Coding Standard,
 # PHPMetrics, PHPDepend, PHPMessDetector, PHPCopyPasteDetector
 RUN curl -s http://getcomposer.org/installer | php \
-    && mv composer.phar /usr/local/bin/composer \
-    && composer global require 'squizlabs/php_codesniffer' \
-        'phpmetrics/phpmetrics' \
-        'pdepend/pdepend' \
-        'phpmd/phpmd' \
-        'sebastian/phpcpd' \
-    && cd ~/.composer/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards \
-    && git clone https://github.com/wataridori/framgia-php-codesniffer.git Framgia
-
-# Create symlink
-RUN ln -s /root/.composer/vendor/bin/phpcs /usr/bin/phpcs \
-    && ln -s /root/.composer/vendor/bin/pdepend /usr/bin/pdepend \
-    && ln -s /root/.composer/vendor/bin/phpmetrics /usr/bin/phpmetrics \
-    && ln -s /root/.composer/vendor/bin/phpmd /usr/bin/phpmd \
-    && ln -s /root/.composer/vendor/bin/phpcpd /usr/bin/phpcpd
-
-# Install framgia-ci-tool
-RUN curl -o /usr/bin/framgia-ci https://raw.githubusercontent.com/framgia/ci-report-tool/master/dist/framgia-ci \
-    && chmod +x /usr/bin/framgia-ci
+    && mv composer.phar /usr/local/bin/composer
 
 RUN apt-get update && apt-get install -y \
     python3.4 \
