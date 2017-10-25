@@ -74,8 +74,8 @@ RUN curl -s http://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer
 
 RUN apt-get update && apt-get install -y \
-    python3.4 \
-    python3-pip
+    python2.7 \
+    python-pip
 
 # Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
