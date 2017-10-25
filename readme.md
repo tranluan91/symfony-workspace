@@ -1,4 +1,4 @@
-# Workspace for running Laravel project
+# Workspace for running Symfony project
 
 - Based on the latest official `ubuntu:16.04` image
 - PHP 7.1 and other necessary tools installed
