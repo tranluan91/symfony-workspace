@@ -102,7 +102,11 @@ RUN ln -s /root/.composer/vendor/bin/phpcs /usr/bin/phpcs \
 RUN curl -o /usr/bin/framgia-ci https://raw.githubusercontent.com/framgia/ci-report-tool/master/dist/framgia-ci \
     && chmod +x /usr/bin/framgia-ci
 
+RUN apt-get update && apt-get install -y \
+    python3.4 \
+    python3-pip
+
 # Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-WORKDIR /var/www/laravel
+WORKDIR /var/www/project
