@@ -63,10 +63,6 @@ RUN echo "export PATH=${PATH}:/var/www/laravel/vendor/bin:/root/.composer/vendor
 # Load xdebug Zend extension with phpunit command
 RUN echo "alias phpunit='php -dzend_extension=xdebug.so /var/www/laravel/vendor/bin/phpunit'" >> ~/.bashrc
 
-# Install mongodb extension
-RUN pecl channel-update pecl.php.net && pecl install mongodb-1.1.9
-RUN echo "extension=mongodb.so" >> /etc/php/7.1/cli/php.ini
-
 # Install Nodejs
 RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - \
     && apt-get install -y nodejs \
